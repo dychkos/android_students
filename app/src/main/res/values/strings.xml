@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Students</string>
+    <string name="hello_text">Показати список</string>
+    <string name="btn_text">Start</string>
+    <string name="btn_send">Відправити</string>
+    <string-array name="students_group">
+        <item>301</item>
+        <item>302</item>
+        <item>303</item>
+        <item>304</item>
+    </string-array>
+
+</resources>
