@@ -56,6 +56,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void buttonGrpClick(View view){
+        Spinner spinner = (Spinner) findViewById(R.id.spinner2);
+        String grpNum = (String) spinner.getSelectedItem();
+
+        Intent intent = new Intent(this,StudentsGroupActivity.class);
+        intent.putExtra("groupNumber",grpNum);
+
+        startActivity(intent);
+
+    }
+
     private void runTimer(){
         final TextView timeView = (TextView)findViewById(R.id.timer);
         final Handler handler = new Handler();
