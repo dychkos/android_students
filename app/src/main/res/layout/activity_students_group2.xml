@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/editTextGrpNum"
+        android:id="@+id/editFacultyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextFacultyText"
+        android:id="@+id/editTextGrpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -82,7 +82,7 @@
         android:layout_marginTop="8dp"
         android:text="Рівень освіти "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextGrpNum"
+        app:layout_constraintTop_toBottomOf="@+id/editFacultyText"
         />
 
     <RadioGroup

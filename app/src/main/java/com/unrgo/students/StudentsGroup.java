@@ -1,5 +1,7 @@
 package com.unrgo.students;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -59,7 +61,7 @@ public class StudentsGroup {
         this.privilageExistsFlag = privilageExistsFlag;
     }
 
-    private final static ArrayList<StudentsGroup> groups = new ArrayList<StudentsGroup>(
+    private static ArrayList<StudentsGroup> groups = new ArrayList<StudentsGroup>(
             Arrays.asList(
                     new StudentsGroup("301","Computer Science",0,true,false),
                     new StudentsGroup("302","Computer Science",0,true,false),
@@ -69,6 +71,10 @@ public class StudentsGroup {
             )
     );
 
+    public static void addGroup(StudentsGroup group){
+        groups.add(group);
+    }
+
     public static StudentsGroup getGroup(String groupNumber){
         for(StudentsGroup g:groups){
             if(g.getNumber().equals(groupNumber)){
@@ -76,6 +82,16 @@ public class StudentsGroup {
             }
         }
         return null;
+    }
+
+    public static ArrayList<StudentsGroup> getGroups(){
+        return groups;
+    }
+
+    @NonNull
+    @Override
+    public String toString(){
+        return number;
     }
 
 }

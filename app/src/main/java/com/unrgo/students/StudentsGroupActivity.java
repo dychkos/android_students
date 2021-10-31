@@ -21,12 +21,12 @@ public class StudentsGroupActivity extends AppCompatActivity {
         String grpNumber = intent.getStringExtra("groupNumber");
         StudentsGroup group = StudentsGroup.getGroup(grpNumber);
 
-        EditText txtGroupNumber =(EditText) findViewById(R.id.editTextGrpNum);
+        EditText txtGroupNumber =(EditText) findViewById(R.id.editTextGrpText);
         TextView txtGroupNumberView =(TextView) findViewById(R.id.textGrpNum);
         assert group != null;
         txtGroupNumber.setText(group.getNumber());
         txtGroupNumberView.setText(group.getNumber());
-        EditText txtFacultyText =(EditText) findViewById(R.id.editTextFacultyText);
+        EditText txtFacultyText =(EditText) findViewById(R.id.editFacultyText);
         TextView txtFacultyTextView =(TextView) findViewById(R.id.textFacultyName);
         txtFacultyText.setText(group.getFacultyName());
         txtFacultyTextView.setText(group.getFacultyName());
@@ -47,8 +47,8 @@ public class StudentsGroupActivity extends AppCompatActivity {
     }
 
     public void onOkBtnClick(View view){
-        String outString = "Група" + ((TextView)findViewById(R.id.editTextGrpNum)).getText() +'\n';
-        outString += "Факультет" + ((TextView)findViewById(R.id.editTextFacultyText)).getText() +'\n';
+        String outString = "Група" + ((TextView)findViewById(R.id.editFacultyText)).getText() +'\n';
+        outString += "Факультет" + ((TextView)findViewById(R.id.editTextGrpText)).getText() +'\n';
 
         if(((RadioButton)findViewById(R.id.radioBac)).isChecked() ){
             outString+="рівень освіти - " + "бакалавр\n";

@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Students">
         <activity
+            android:name=".AddStudentsGroupActivity"
+            android:parentActivityName=".GroupListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GroupListActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".StudentsGroupActivity"
             android:exported="true" />
         <activity
