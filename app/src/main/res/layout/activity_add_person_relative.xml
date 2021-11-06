@@ -7,19 +7,19 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textGrpNum"
+        android:id="@+id/textRelativeFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Група"
+        android:text="ПІБ"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        android:id="@+id/addTextGrp"
+        android:id="@+id/addRelativeFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -27,37 +27,37 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
-        app:layout_constraintStart_toEndOf="@+id/textGrpNum"
-        app:layout_constraintTop_toTopOf="@+id/textGrpNum" />
+        app:layout_constraintStart_toEndOf="@+id/textRelativeFullName"
+        app:layout_constraintTop_toTopOf="@+id/textRelativeFullName" />
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textRelativeType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Назва факультету"
+        android:text="Тип спорідненності"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintStart_toStartOf="@+id/textGrpNum"
-        app:layout_constraintTop_toBottomOf="@+id/textGrpNum" />
+        app:layout_constraintStart_toStartOf="@+id/textRelativeFullName"
+        app:layout_constraintTop_toBottomOf="@+id/textRelativeFullName" />
 
     <EditText
-        android:id="@+id/addFacultyText"
+        android:id="@+id/addRelativeAge"
         android:layout_width="0dp"
         android:layout_height="51dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        android:text="mother"
+        app:layout_constraintStart_toStartOf="@+id/textRelativeType"
+        app:layout_constraintTop_toBottomOf="@+id/textRelativeType" />
 
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
-        android:onClick="onGroupAdd"
+        android:onClick="onRelativeAdd"
         android:text="@string/btn_send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -16,7 +16,7 @@ public class StudentsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_students);
+        setContentView(R.layout.activity_persons);
 
         Intent intent = getIntent();
         String groupNumber = intent.getStringExtra("groupNumber");
@@ -26,7 +26,7 @@ public class StudentsActivity extends AppCompatActivity {
            txtStudents.append(student.getName()).append("\n");
         }
 
-        TextView textView  = (TextView) findViewById(R.id.text);
+        TextView textView  = (TextView) findViewById(R.id.relativeType);
         textView.setText(txtStudents.toString());
 
         textSize = textView.getTextSize();
@@ -40,7 +40,7 @@ public class StudentsActivity extends AppCompatActivity {
     }
 
     public void onBtnSendClick(View view){
-        TextView textView  = (TextView) findViewById(R.id.text);
+        TextView textView  = (TextView) findViewById(R.id.relativeType);
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TITLE,"Список студентів");
@@ -50,7 +50,7 @@ public class StudentsActivity extends AppCompatActivity {
 
     public void onBtnPlusClick(View view){
         textSize *=1.1f;
-        TextView textView = findViewById(R.id.text);
+        TextView textView = findViewById(R.id.relativeType);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
 
     }

@@ -1,17 +1,10 @@
 package com.unrgo.students;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.PersistableBundle;
 import android.view.View;
-import android.widget.Spinner;
-import android.widget.TextView;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onBtnClick(View view){
-        Intent intent = new Intent(this,GroupListActivity.class);
+        Intent intent = new Intent(this, RelativesListActivity.class);
         startActivity(intent);
 
     }
