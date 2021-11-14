@@ -63,7 +63,7 @@
         app:layout_constraintStart_toEndOf="@+id/relativeType" />
 
     <TextView
-        android:id="@+id/textRelativeLiveTogether"
+        android:id="@+id/edtRelativeLiveTogether"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -79,8 +79,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textRelativeLiveTogether"
-        app:layout_constraintTop_toTopOf="@+id/textRelativeLiveTogether">
+        app:layout_constraintStart_toEndOf="@+id/edtRelativeLiveTogether"
+        app:layout_constraintTop_toTopOf="@+id/edtRelativeLiveTogether">
 
 
         <RadioButton
@@ -89,8 +89,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="так"
-            app:layout_constraintStart_toEndOf="@+id/textRelativeLiveTogether"
-            app:layout_constraintTop_toTopOf="@+id/textRelativeLiveTogether" />
+            app:layout_constraintStart_toEndOf="@+id/edtRelativeLiveTogether"
+            app:layout_constraintTop_toTopOf="@+id/edtRelativeLiveTogether" />
 
         <RadioButton
             android:id="@+id/radioNoTogether"
@@ -98,8 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="ні"
-            app:layout_constraintStart_toEndOf="@+id/textRelativeLiveTogether"
-            app:layout_constraintTop_toTopOf="@+id/textRelativeLiveTogether" />
+            app:layout_constraintStart_toEndOf="@+id/edtRelativeLiveTogether"
+            app:layout_constraintTop_toTopOf="@+id/edtRelativeLiveTogether" />
     </RadioGroup>
 
     <ImageView
@@ -122,6 +122,15 @@
         android:onClick="onOkBtnClick"
         android:text="@string/btn_send"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Родичі"
+        android:onClick="onShowPersonsBtnClick"
+        app:layout_constraintStart_toStartOf="@+id/edtRelativeLiveTogether"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 

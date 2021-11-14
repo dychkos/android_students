@@ -22,7 +22,7 @@ public class StudentsActivity extends AppCompatActivity {
         String groupNumber = intent.getStringExtra("groupNumber");
 
         StringBuilder txtStudents = new StringBuilder();
-        for(Student student : Student.getStudents(groupNumber)){
+        for(Person student : Person.getPersons(groupNumber)){
            txtStudents.append(student.getName()).append("\n");
         }
 

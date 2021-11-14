@@ -38,7 +38,7 @@ public class RelativesListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 int relativeId = ((PersonRelatives) adapterView.getItemAtPosition(i)).getId();
                 Intent intent = new Intent(RelativesListActivity.this, PersonRelativesActivity.class);
-                intent.putExtra("relativeId",relativeId);
+                intent.putExtra("relative_id",relativeId);
 
                 startActivity(intent);
             }
@@ -81,12 +81,13 @@ public class RelativesListActivity extends AppCompatActivity {
 
     private ArrayList<PersonRelatives> getDataFromDB(){
         ArrayList<PersonRelatives> relatives = new ArrayList<PersonRelatives>();
-        SQLiteOpenHelper sqLiteOpenHelper = new PersonDataBaseHelper(this);
+
 
         try {
+            SQLiteOpenHelper sqLiteOpenHelper = new PersonDataBaseHelper(this);
             SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
             Cursor cursor = db.query("relatives",
-                    new String[] {"full_name","age","type","live_together","id"},
+                    new String[] {"full_name","type","live_together","id"},
                     null,null,null,null,null
             );
             while (cursor.moveToNext()){
@@ -94,14 +95,13 @@ public class RelativesListActivity extends AppCompatActivity {
                         new PersonRelatives(
                                 cursor.getString(0),
                                 cursor.getString(1),
-                                cursor.getInt(2),
-                                (cursor.getInt(3)>0),
-                                cursor.getInt(4)
+                                (cursor.getInt(2)>0),
+                                cursor.getInt(3)
                                 )
                 );
             }
         }catch (SQLException e){
-            Toast toast = Toast.makeText(this,"Database unavailable",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,"Database up unavailable",Toast.LENGTH_SHORT);
             toast.show();
         }
 

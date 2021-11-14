@@ -10,15 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Students">
         <activity
-            android:name=".AddPersonRelativesActivity"
-            android:parentActivityName=".RelativesListActivity"
+            android:name=".PersonsActivity"
             android:exported="true" />
+        <activity
+            android:name=".AddPersonRelativesActivity"
+            android:exported="true"
+            android:parentActivityName=".RelativesListActivity" />
         <activity
             android:name=".RelativesListActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".PersonRelativesActivity"
+            android:parentActivityName=".RelativesListActivity"
             android:exported="true" />
         <activity
             android:name=".StudentsActivity"

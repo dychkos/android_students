@@ -8,40 +8,35 @@ import java.util.Arrays;
 public class PersonRelatives {
     private String fullName;
     private String typeRelative;
-    private int age;
     private boolean isLiveTogether;
     private int id;
 
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
 
-    public PersonRelatives(String fullName, String typeRelative, int age, boolean isLiveTogether) {
-        this.age = age;
+    public PersonRelatives(String fullName, String typeRelative, boolean isLiveTogether) {
         this.fullName = fullName;
         this.isLiveTogether = isLiveTogether;
         this.typeRelative = typeRelative;
 
     }
 
-    public PersonRelatives(String fullName, String typeRelative, int age, boolean isLiveTogether, int id) {
-      this(fullName,typeRelative,age,isLiveTogether);
+    public PersonRelatives(String fullName, String typeRelative,boolean isLiveTogether, int id) {
+      this(fullName,typeRelative,isLiveTogether);
       this.id = id;
     }
 
 
-
-
-    private static ArrayList<PersonRelatives> relatives = new ArrayList<PersonRelatives>(
+    private static final ArrayList<PersonRelatives> relatives = new ArrayList<PersonRelatives>(
             Arrays.asList(
-                    new PersonRelatives("Swetlana Dychko","Mother",44,true),
-                    new PersonRelatives("Anatoliy Dychko","Father",51,true),
-                    new PersonRelatives("Ksenia Dychko","Sister",25,true),
-                    new PersonRelatives("Vladimir Nakonechiniy","Brother",16,false)
+                    new PersonRelatives("Dychko","Mother",true),
+                    new PersonRelatives("Jobs","Father",true),
+                    new PersonRelatives("Smith","Sister",true),
+                    new PersonRelatives("Nakonechiniy","Brother",false)
             )
     );
 
@@ -65,7 +60,7 @@ public class PersonRelatives {
     @NonNull
     @Override
     public String toString(){
-        return fullName;
+        return this.fullName;
     }
 
     public String getFullName() {
@@ -82,14 +77,6 @@ public class PersonRelatives {
 
     public void setTypeRelative(String typeRelative) {
         this.typeRelative = typeRelative;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public boolean isLiveTogether() {

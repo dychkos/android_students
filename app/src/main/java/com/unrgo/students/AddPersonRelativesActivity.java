@@ -19,7 +19,7 @@ public class AddPersonRelativesActivity extends AppCompatActivity {
         EditText relativeFullName = (EditText) findViewById(R.id.addRelativeFullName);
         EditText relativeType = (EditText) findViewById(R.id.addRelativeAge);
 
-        PersonRelatives.addRelative(new PersonRelatives(relativeFullName.getText().toString(),relativeType.getText().toString(),18,false));
+        PersonRelatives.addRelative(new PersonRelatives(relativeFullName.getText().toString(),relativeType.getText().toString(),false));
         NavUtils.navigateUpFromSameTask(this);
     }
 }

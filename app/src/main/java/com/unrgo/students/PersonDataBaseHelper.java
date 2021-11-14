@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 public class PersonDataBaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "persons";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
 
 
@@ -23,11 +23,11 @@ public class PersonDataBaseHelper extends SQLiteOpenHelper {
         String sqlQuery = "CREATE TABLE Relatives (\n" +
                 "id             INTEGER PRIMARY KEY AUTOINCREMENT, \n" +
                 "full_name      TEXT (25) NOT NULL, \n" +
-                "age            INT  NOT NULL ,\n " +
                 "type           VARCHAR(10) , \n" +
                 "live_together  BOOLEAN );";
 
         sqLiteDatabase.execSQL(sqlQuery);
+        updateSchema(sqLiteDatabase,0);
         populateDB(sqLiteDatabase);
     }
 
@@ -35,12 +35,13 @@ public class PersonDataBaseHelper extends SQLiteOpenHelper {
         for (PersonRelatives relative : PersonRelatives.getRelatives()){
             insertRow(db,relative);
         }
+        populatePersons(db);
+
     }
 
     private void insertRow(SQLiteDatabase db, PersonRelatives relative){
         ContentValues contentValues = new ContentValues();
         contentValues.put("full_name",relative.getFullName());
-        contentValues.put("age",relative.getAge());
         contentValues.put("type",relative.getTypeRelative());
         contentValues.put("live_together",relative.isLiveTogether());
         db.insert("Relatives",null,contentValues);
@@ -48,7 +49,30 @@ public class PersonDataBaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+       updateSchema(db,i);
 
+    }
+
+    private void populatePersons(SQLiteDatabase db){
+        for (Person person : Person.getPersons()){
+            insertRowToPerson(db,person);
+        }
+    }
+
+    private void insertRowToPerson(SQLiteDatabase db,Person person){
+        db.execSQL("INSERT INTO Persons (name,age) select '"+person.getName()+"',id\n+" +
+                "from Relatives" +
+                "where id='"+person.getRelative_id()+"'");
+    }
+
+    private void updateSchema(SQLiteDatabase db,int ver){
+        if(ver<2){
+            db.execSQL("CREATE TABLE Persons (\n" +
+                    "id             INTEGER PRIMARY KEY AUTOINCREMENT, \n" +
+                    "relative_id INTEGER REFERENCES Relatives(id) ON DELETE RESTRICT ON UPDATE RESTRICT, \n" +
+                    "full_name      TEXT (25) NOT NULL, \n" +
+                    "age            INT  NOT NULL)");
+        }
     }
 }
