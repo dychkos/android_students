@@ -22,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void showJsonData(View view){
+        Intent intent = new Intent(this, PostListActivity.class);
+        startActivity(intent);
+
+    }
+
 
 
 
