@@ -30,7 +30,7 @@ public class RelativesListActivity extends AppCompatActivity {
         ArrayAdapter<PersonRelatives> personRelativesArrayAdapter = new ArrayAdapter<PersonRelatives>(
                 this,
                 android.R.layout.simple_list_item_1,
-                getDataFromDB()
+                PersonRelatives.httpGetRelatives()
         );
 
         AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {

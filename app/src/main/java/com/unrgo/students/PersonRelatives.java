@@ -2,6 +2,10 @@ package com.unrgo.students;
 
 import androidx.annotation.NonNull;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -55,6 +59,45 @@ public class PersonRelatives {
 
     public static ArrayList<PersonRelatives> getRelatives(){
         return relatives;
+    }
+
+    public static ArrayList<PersonRelatives> httpGetRelatives(){
+        ArrayList<PersonRelatives> relatives = new ArrayList<>();
+        String result = new HttpDataGetter("http://10.0.2.2/backend/?relatives").getData();
+        try {
+            JSONArray jsonArray = new JSONArray(result);
+            for(int i =0; i < jsonArray.length();i++){
+                JSONObject object = jsonArray.getJSONObject(i);
+                relatives.add(
+                        new PersonRelatives(
+                                object.getString("full_name"),
+                                object.getString("type_relative"),
+                                object.getBoolean("is_live_together"),
+                                object.getInt("id"))
+                        );
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return relatives;
+    }
+
+    public static PersonRelatives httpGetOneRelative(int id){
+       PersonRelatives relative = null;
+        String result = new HttpDataGetter("http://10.0.2.2/backend/?relatives/" + id).getData();
+        try {
+            JSONObject jsonObject = new JSONObject(result);
+            relative = new PersonRelatives(
+                    jsonObject.getString("full_name"),
+                    jsonObject.getString("type_relative"),
+                    jsonObject.getBoolean("is_live_together"),
+                    jsonObject.getInt("id")
+            );
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return relative;
     }
 
     @NonNull
